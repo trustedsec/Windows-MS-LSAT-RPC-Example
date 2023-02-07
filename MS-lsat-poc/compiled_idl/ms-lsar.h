@@ -7,7 +7,7 @@
 /* at Mon Jan 18 19:14:07 2038
  */
 /* Compiler settings for ms-lsar.idl:
-    Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.01.0626 
+    Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.01.0626 
     protocol : dce , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
@@ -561,6 +561,16 @@ typedef struct _LSAPR_AUTH_INFORMATION
     } 	LSAPR_AUTH_INFORMATION;
 
 typedef struct _LSAPR_AUTH_INFORMATION *PLSAPR_AUTH_INFORMATION;
+
+typedef struct _LSAPR_TRUSTED_DOMAIN_AUTH_INFORMATION_INTERNAL_AES
+    {
+    UCHAR AuthData[ 64 ];
+    UCHAR Salt[ 16 ];
+    /* [range] */ ULONG cbCipher;
+    /* [size_is] */ PUCHAR Cipher;
+    } 	LSAPR_TRUSTED_DOMAIN_AUTH_INFORMATION_INTERNAL_AES;
+
+typedef struct _LSAPR_TRUSTED_DOMAIN_AUTH_INFORMATION_INTERNAL_AES *PLSAPR_TRUSTED_DOMAIN_AUTH_INFORMATION_INTERNAL_AES;
 
 typedef struct _LSAPR_TRUSTED_DOMAIN_AUTH_INFORMATION
     {
@@ -1209,6 +1219,166 @@ NTSTATUS LsarLookupNames4(
     /* [out][in] */ unsigned long *MappedCount,
     /* [in] */ unsigned long LookupOptions,
     /* [in] */ unsigned long ClientRevision);
+
+void Opnum78NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum79NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum80NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum81NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum82NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum83NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum84NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum85NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum86NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum87NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum88NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum89NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum90NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum91NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum92NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum93NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum94NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum95NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum96NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum97NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum98NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum99NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum100NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum101NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum102NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum103NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum104NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum105NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum106NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum107NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum108NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum109NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum110NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum111NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum112NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum113NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum114NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum115NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum116NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum117NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum118NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum119NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum120NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum121NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum122NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum123NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum124NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum125NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum126NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum127NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+void Opnum128NotUsedOnWire( 
+    /* [in] */ handle_t IDL_handle);
+
+NTSTATUS LsarCreateTrustedDomainEx3( 
+    /* [in] */ LSAPR_HANDLE PolicyHandle,
+    /* [in] */ PLSAPR_TRUSTED_DOMAIN_INFORMATION_EX TrustedDomainInformation,
+    /* [in] */ PLSAPR_TRUSTED_DOMAIN_AUTH_INFORMATION_INTERNAL_AES AuthenticationInformation,
+    /* [in] */ ACCESS_MASK DesiredAccess,
+    /* [out] */ LSAPR_HANDLE *TrustedDomainHandle);
 
 typedef /* [handle] */ LPWSTR PLSAPR_SERVER_NAME;
 

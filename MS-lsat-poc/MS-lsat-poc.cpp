@@ -52,8 +52,8 @@ int list_names(RPC_BINDING_HANDLE* hrpc, va_list args)
     unsigned long count = 0;
 
 
-    make_unicode_str((PUNICODE_STRING)&(strings[0]), L"RasMan");
-    make_unicode_str((PUNICODE_STRING) & (strings[1]), L"ThisSHouldNotExist");
+    make_unicode_str((PUNICODE_STRING) & (strings[0]), L"NT Service\\RasMan");
+    make_unicode_str((PUNICODE_STRING) & (strings[1]), L"NT Service\\ThisSHouldNotExist");
     make_unicode_str((PUNICODE_STRING) & (strings[2]), va_arg(args, PCWSTR));
     LSAPR_POLICY_PRIMARY_DOM_INFO pdi = { 0 };
     hr = LsarOpenPolicy3(junk, &lsa_obj,  POLICY_LOOKUP_NAMES, 1,&rev_info, &out_rev_ver, &out_rev_info, &hlsa);
@@ -70,10 +70,11 @@ int list_names(RPC_BINDING_HANDLE* hrpc, va_list args)
     }
     else
     {
-        printf("it worked!");
-        for (int i = 0; i < count; i++)
+        printf("it worked!\n");
+        for (int i = 0; i < ts.Entries; i++)
         {
-            printf("%d", i);
+            printf("%ls %s\n", strings[i].Buffer, (ts.Sids[i].DomainIndex == -1) ? "Does not exist" : "Exists");
+            //printf("%d %d %d\n", ts.Sids[i].DomainIndex, ts.Sids[i].RelativeId, ts.Sids[i].Use);
         }
     }
 
