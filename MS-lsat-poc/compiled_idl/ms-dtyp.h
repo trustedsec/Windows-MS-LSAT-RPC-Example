@@ -57,7 +57,7 @@ extern "C"{
 /* interface __MIDL_itf_ms2Ddtyp_0000_0000 */
 /* [local] */ 
 
-typedef unsigned short wchar_t;
+//typedef unsigned short wchar_t;
 
 typedef void *ADCONNECTION_HANDLE;
 
@@ -173,7 +173,7 @@ typedef unsigned __int64 QWORD;
 
 typedef void *RPC_BINDING_HANDLE;
 
-typedef UCHAR *STRING;
+//typedef UCHAR *STRING;
 
 typedef unsigned int UINT;
 

@@ -13,33 +13,27 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="idl">
-      <UniqueIdentifier>{ea381fe7-4dac-4fda-bf17-3c93dded5c41}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MS-lsat-poc.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ms-lsat.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="midl_user.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ms-lsad.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClInclude Include="framework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rpc_helpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="compiled_idl\ms-dtyp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="compiled_idl\ms-lsat.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="compiled_idl\ms-lsad.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClCompile Include="WindowsRpcHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rpc_helpers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
