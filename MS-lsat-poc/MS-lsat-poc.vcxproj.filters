@@ -21,13 +21,10 @@
     <ClCompile Include="MS-lsat-poc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ms-lsat.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="midl_user.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ms-lsad.c">
+    <ClCompile Include="ms-lsar.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,10 +32,7 @@
     <ClInclude Include="compiled_idl\ms-dtyp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="compiled_idl\ms-lsat.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="compiled_idl\ms-lsad.h">
+    <ClInclude Include="compiled_idl\ms-lsar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
