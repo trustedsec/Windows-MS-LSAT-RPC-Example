@@ -27,7 +27,7 @@ VOID go(
 	targetpath = (const wchar_t*) BeaconDataExtract(&parser, NULL);
     servicenameptr = (const wchar_t*)BeaconDataExtract(&parser, NULL);
     MSVCRT$wcscpy(servicename, L"NT SERVICE\\");
-    MSVCRT$wcscpy(servicename, servicenameptr); //Yes an operator could break this, but a legit service has a max length of 255 which we will fit
+    MSVCRT$wcsncat(servicename, servicenameptr, 255); //Yes an operator could break this, but a legit service has a max length of 255 which we will fit
 
 
 	if(!bofstart())

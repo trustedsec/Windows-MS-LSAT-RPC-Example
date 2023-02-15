@@ -78,32 +78,32 @@ void list_names(wchar_t* target, wchar_t* svcname)
     make_unicode_str((PUNICODE_STRING) & (strings[0]), svcname);
     LSAPR_POLICY_PRIMARY_DOM_INFO pdi = { 0 };
     internal_printf("targeting %ls for svc %ls\n", target, svcname);
-    // RpcTryExcept
+    RpcTryExcept
     hr = LsarOpenPolicy3(target, &lsa_obj,  POLICY_LOOKUP_NAMES, 1,&rev_info, &out_rev_ver, &out_rev_info, &hlsa);
-    // if (!NT_SUCCESS(hr))
-    // {
-    //     printf("failed to open policy %ld\n", hr);
-    //     return;
-    // }
-    // hr = LsarLookupNames(hlsa, 1, strings, &ref_dom,  &ts, LsapLookupWksta, &count);
-    // if (!NT_SUCCESS(hr))
-    // {
-    //     printf("translation failed %ld\n", hr);
-    //     LsarClose(&hlsa);
-    //     return;
-    // }
-    // else
-    // {
-    //     printf("it worked!\n");
-    //     for (int i = 0; i < ts.Entries; i++)
-    //     {
-    //         printf("%ls %s\n", strings[i].Buffer, (ts.Sids[i].DomainIndex == -1) ? "Does not exist" : "Exists");
-    //     }
-    // }
-    // RpcExcept(RPCRT4$RpcExceptionFilter(RpcExceptionCode()))
-    //     printf("An exception occured while attempting to make the RPC call, recovering and bailing: %lu\n", RpcExceptionCode());
-    // RpcEndExcept
-    // LsarClose(&hlsa);
+    if (!NT_SUCCESS(hr))
+    {
+        printf("failed to open policy %ld\n", hr);
+        return;
+    }
+    hr = LsarLookupNames(hlsa, 1, strings, &ref_dom,  &ts, LsapLookupWksta, &count);
+    if (!NT_SUCCESS(hr))
+    {
+        printf("translation failed %x\n", hr);
+        LsarClose(&hlsa);
+        return;
+    }
+    else
+    {
+        printf("it worked!\n");
+        for (int i = 0; i < ts.Entries; i++)
+        {
+            printf("%ls %s\n", strings[i].Buffer, (ts.Sids[i].DomainIndex == -1) ? "Does not exist" : "Exists");
+        }
+    }
+    RpcExcept(RPCRT4$RpcExceptionFilter(RpcExceptionCode()))
+        printf("An exception occured while attempting to make the RPC call, recovering and bailing: %lu\n", RpcExceptionCode());
+    RpcEndExcept
+    LsarClose(&hlsa);
 
 }
 
