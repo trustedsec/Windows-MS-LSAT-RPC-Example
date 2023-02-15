@@ -1,0 +1,42 @@
+sub readbof {
+	local('$barch $handle $data $msg $ttp');
+	$barch  = barch($1);
+
+	# read in the right BOF file
+    println(script_resource("$2 $+ . $+ $barch $+ .o"));
+	$handle = openf(script_resource("$2 $+ . $+ $barch $+ .o"));
+	$data   = readb($handle, -1);
+	closef($handle);
+	if(strlen($data) == 0)
+	{
+		berror($1, "could not read bof file");
+	}
+	
+	$ttp = iff( ($4 eq $null || $4 eq ""), "", $4);
+	$msg = iff( ($3 eq $null || $3 eq ""), "Running $2", $3);
+	$msg = iff( ($ttp ne $null && $ttp ne ""), $msg . " (" . $ttp . ")", $msg);
+	# announce what we're doing
+	blog($1, $msg);
+	btask($1, $msg, $ttp);
+	return $data;
+}
+
+alias check_service {
+    local('$args $target $svc');
+
+    if(size(@_) < 3)
+    {
+        berror($1, beacon_command_detail("check_service"));
+        return;
+    }
+    $target = $2;
+    $svc = $3;
+    $args = bof_pack($1, "ZZ", $target, $svc);
+    beacon_inline_execute($1, readbof($1, "lsar"), "go", $args);
+
+}
+
+beacon_command_register("check_service",
+"check if a service exists on a target machine",
+"Synopis: check_service
+check_service <target> <svcname>");
