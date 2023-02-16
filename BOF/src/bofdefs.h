@@ -54,6 +54,9 @@ WINBASEAPI WINBOOL WINAPI KERNEL32$ConvertFiberToThread (VOID);
 WINBASEAPI VOID WINAPI KERNEL32$DeleteFiber (LPVOID lpFiber);
 WINBASEAPI VOID WINAPI KERNEL32$SwitchToFiber (LPVOID lpFiber);
 WINBASEAPI DWORD WINAPI KERNEL32$WaitForSingleObject (HANDLE hHandle, DWORD dwMilliseconds);
+WINBASEAPI BOOL WINAPI KERNEL32$GetExitCodeThread (HANDLE hThread, LPDWORD lpExitCode);
+WINBASEAPI PVOID WINAPI KERNEL32$AddVectoredExceptionHandler (ULONG First, PVECTORED_EXCEPTION_HANDLER Handler);
+WINBASEAPI ULONG WINAPI KERNEL32$RemoveVectoredExceptionHandler (PVOID Handle);
 WINBASEAPI VOID WINAPI KERNEL32$Sleep (DWORD dwMilliseconds);
 WINBASEAPI WINBOOL WINAPI KERNEL32$DeleteFileW (LPCWSTR lpFileName);
 WINBASEAPI HANDLE WINAPI KERNEL32$CreateFileW (LPCWSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile);
@@ -147,6 +150,8 @@ DECLSPEC_IMPORT PCHAR __cdecl MSVCRT$strchr(const char *haystack, int needle);
 DECLSPEC_IMPORT char *__cdecl MSVCRT$strtok(char * __restrict__ _Str,const char * __restrict__ _Delim);
 _CRTIMP char *__cdecl MSVCRT$strtok_s(char *_Str,const char *_Delim,char **_Context);
 WINBASEAPI unsigned long __cdecl MSVCRT$strtoul(const char * __restrict__ _Str,char ** __restrict__ _EndPtr,int _Radix);
+DECLSPEC_IMPORT uintptr_t __cdecl MSVCRT$_beginthreadex(void *_Security,unsigned _StackSize,_beginthreadex_proc_type _StartAddress,void *_ArgList,unsigned _InitFlag,unsigned *_ThrdAddr);
+DECLSPEC_IMPORT void __cdecl MSVCRT$_endthreadex(unsigned _Retval);
 
 //DNSAPI
 DECLSPEC_IMPORT DNS_STATUS WINAPI DNSAPI$DnsQuery_A(PCSTR,WORD,DWORD,PIP4_ARRAY,PDNS_RECORD*,PVOID*);
