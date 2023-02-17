@@ -1,4 +1,3 @@
-#define BOF
 #define WIN32_LEAN_AND_MEAN
 #define WIN32_NO_STATUS // This magic incantation lets us safely use NTSTATUS macros in userland
 #include <windows.h>

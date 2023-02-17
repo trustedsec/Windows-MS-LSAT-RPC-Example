@@ -24,6 +24,10 @@
 #define POLICY_LOOKUP_NAMES                        0x00000800L
 #define POLICY_NOTIFICATION                        0x00001000L
 
+#ifndef _MSC_VER
+#define RpcTryExcept
+
+#endif
 
 RPC_UNICODE_STRING strings;
 
@@ -100,9 +104,11 @@ void list_names(wchar_t* target, wchar_t* svcname)
             printf("%ls %s\n", strings[i].Buffer, (ts.Sids[i].DomainIndex == -1) ? "Does not exist" : "Exists");
         }
     }
+    #ifdef _MSC_VER
     RpcExcept(RPCRT4$RpcExceptionFilter(RpcExceptionCode()))
         printf("An exception occured while attempting to make the RPC call, recovering and bailing: %lu\n", RpcExceptionCode());
     RpcEndExcept
+    #endif
     LsarClose(&hlsa);
 
 }

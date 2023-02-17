@@ -8,13 +8,16 @@
 
 
 
-// char * output __attribute__((section (".data"))) = 0;  // this is just done so its we don't go into .bss which isn't handled properly
-// WORD currentoutsize __attribute__((section (".data"))) = 0;
-// HANDLE trash __attribute__((section (".data"))) = NULL; // Needed for x64 to not give relocation error
 
+#ifdef _MSC_VER
 char * output= 0;  // this is just done so its we don't go into .bss which isn't handled properly
 WORD currentoutsize = 0;
 HANDLE trash = NULL; // Needed for x64 to not give relocation error
+#else
+char * output __attribute__((section (".data"))) = 0;  // this is just done so its we don't go into .bss which isn't handled properly
+WORD currentoutsize __attribute__((section (".data"))) = 0;
+HANDLE trash __attribute__((section (".data"))) = NULL; // Needed for x64 to not give relocation error
+#endif
 
 #ifdef BOF
 int bofstart();

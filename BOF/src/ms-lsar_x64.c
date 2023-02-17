@@ -33,6 +33,12 @@
 #include "ms-lsar.h"
 #include "bofdefs.h"
 
+#ifdef _MSC_VER
+#define decor extern
+#else
+#define decor static
+#endif
+
 #define TYPE_FORMAT_STRING_SIZE   2677                              
 #define PROC_FORMAT_STRING_SIZE   5845                              
 #define EXPR_FORMAT_STRING_SIZE   1                                 
@@ -114,9 +120,9 @@ ObjectType ## _unbind((ObjectType) pObject, ServerHandle);\
 #endif
 
 
-extern const ms2Dlsar_MIDL_TYPE_FORMAT_STRING ms2Dlsar__MIDL_TypeFormatString;
-extern const ms2Dlsar_MIDL_PROC_FORMAT_STRING ms2Dlsar__MIDL_ProcFormatString;
-extern const ms2Dlsar_MIDL_EXPR_FORMAT_STRING ms2Dlsar__MIDL_ExprFormatString;
+decor const ms2Dlsar_MIDL_TYPE_FORMAT_STRING ms2Dlsar__MIDL_TypeFormatString;
+decor const ms2Dlsar_MIDL_PROC_FORMAT_STRING ms2Dlsar__MIDL_ProcFormatString;
+decor const ms2Dlsar_MIDL_EXPR_FORMAT_STRING ms2Dlsar__MIDL_ExprFormatString;
 
 #define GENERIC_BINDING_TABLE_SIZE   1            
 
@@ -140,7 +146,7 @@ static const RPC_CLIENT_INTERFACE lsarpc___RpcClientInterface =
     };
 RPC_IF_HANDLE lsarpc_v0_0_c_ifspec = (RPC_IF_HANDLE)& lsarpc___RpcClientInterface;
 
-extern const MIDL_STUB_DESC lsarpc_StubDesc;
+decor const MIDL_STUB_DESC lsarpc_StubDesc;
 
 static RPC_BINDING_HANDLE lsarpc__MIDL_AutoBindHandle;
 
@@ -2266,8 +2272,8 @@ NTSTATUS LsarOpenPolicy3(
     
 }
 
-extern const GENERIC_BINDING_ROUTINE_PAIR BindingRoutines[ GENERIC_BINDING_TABLE_SIZE ];
-extern const EXPR_EVAL ExprEvalRoutines[];
+decor const GENERIC_BINDING_ROUTINE_PAIR BindingRoutines[ GENERIC_BINDING_TABLE_SIZE ];
+decor const EXPR_EVAL ExprEvalRoutines[];
 
 #if !defined(__RPC_WIN64__)
 #error  Invalid build platform for this stub.
