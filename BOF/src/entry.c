@@ -59,7 +59,7 @@ VOID go(
 		return;
 	}
 
-    handler = KERNEL32$AddVectoredExceptionHandler(0, PvectoredExceptionHandler);
+    handler = KERNEL32$AddVectoredExceptionHandler(0, (PVECTORED_EXCEPTION_HANDLER)PvectoredExceptionHandler);
     thread = (HANDLE)MSVCRT$_beginthreadex(NULL, 0, BeginStub, params, 0, NULL);
     KERNEL32$WaitForSingleObject(thread, INFINITE);
     KERNEL32$GetExitCodeThread(thread, &exitcode);
