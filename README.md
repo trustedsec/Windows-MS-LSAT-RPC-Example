@@ -1,6 +1,6 @@
 ## Windows RPC Example
 
-This repository is a companion document to the blog available at [Trustedsec](https://www.trustedsec.com/blog/) Its main purpose is to help show what an example of calling an RPC function from the generated code of an IDL might look like.
+This repository is a companion document to the blog available at [TrustedSec](https://trustedsec.com/blog/rpc-programming-for-the-aspiring-windows-developer) Its main purpose is to help show what an example of calling an RPC function from the generated code of an IDL might look like.
 
 Once you open the solution you will find two projects
 
